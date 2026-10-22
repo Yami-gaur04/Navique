@@ -1,0 +1,10 @@
+{
+  "name": "navique-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tiny backend for the ORriqo website: serves the site and stores contact-form submissions.",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "optionalDependencies": { "nodemailer": "^6.9.14" }
+}

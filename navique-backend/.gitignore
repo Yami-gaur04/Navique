@@ -1,0 +1,15 @@
+# Environment variables & secrets
+.env
+*.env
+!.env.example
+
+# Dependency directories
+node_modules/
+
+# Customer data & logs
+data/contacts.jsonl
+*.log
+
+# System files
+.DS_Store
+Thumbs.db

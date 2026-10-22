@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ORriqo — Beyond digital. Into what’s next.</title>
+<meta name="description" content="ORriqo designs websites, builds custom AI agents and automates business workflows.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505'/%3E%3Cpath d='M12 21.5h38M16.5 21.5v26.5M16.5 21.5C16.5 9 41 9 42.5 21.5M29 21.5h4c8 0 8 12-2 13M31 34.5l11.5 13.5' stroke='%23FF7138' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050505;--fg:#F3F0EB;--or:#FF7138;--sf:#111;--mu:#9b968e;--ln:rgba(243,240,235,.14);--h:Manrope,"Helvetica Neue",Arial,sans-serif;--b:Inter,system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#050505}}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--b);overflow-x:hidden}
+a{color:inherit}button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px;border-radius:4px}
+#gl,#fb{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#fb{display:none}.nogl #gl{display:none}.nogl #fb{display:block}
+#fb i{position:absolute;width:min(60vw,560px);aspect-ratio:1;top:5%;left:35%;border-radius:48% 52% 61% 39%/45% 38% 62% 55%;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.2),transparent 20%),radial-gradient(circle,#050505 50%,transparent 70%),conic-gradient(#FF7138,#6a4cff,#2f6bff,#050505,#FF7138);animation:mo 20s ease-in-out infinite}
+@keyframes mo{50%{border-radius:60% 40% 38% 62%/58% 52% 48% 42%;rotate:50deg;translate:-5vw 6vh}}
+#bar{position:fixed;z-index:40;top:0;left:0;height:2px;width:100%;background:var(--or);transform:scaleX(0);transform-origin:0 0}
+.brand{position:fixed;z-index:30;top:calc(22px + env(safe-area-inset-top,0px));left:24px;display:flex;align-items:center;gap:12px;text-decoration:none}
+.wm{font:700 15px var(--h);letter-spacing:.12em;padding-top:5px;border-top:2px solid currentColor;line-height:1;display:inline-flex;align-items:center}
+.wm .w-en{color:inherit;font-family:var(--h);font-weight:700}
+.wm .w-hi{width:1.12em;height:1.24em;color:var(--or);margin:0 1px;vertical-align:middle;display:inline-block;overflow:visible}
+.mk{width:30px;height:30px;color:var(--or)}
+#mb{position:fixed;z-index:50;top:calc(14px + env(safe-area-inset-top,0px));right:16px;width:56px;height:56px;border-radius:50%;border:1px solid var(--ln);background:rgba(5,5,5,.6);backdrop-filter:blur(8px);display:grid;place-items:center;cursor:pointer;transition:transform .4s}
+#mb:hover{transform:rotate(-8deg) scale(1.06)}#mb .mk{width:26px;height:26px}
+#ov{position:fixed;inset:0;z-index:45;background:rgba(5,5,5,.96);display:grid;align-content:center;padding:0 8vw;clip-path:circle(0 at calc(100% - 44px) 42px);visibility:hidden;transition:clip-path .7s cubic-bezier(.7,0,.2,1),visibility 0s .7s}
+#ov.o{clip-path:circle(150% at calc(100% - 44px) 42px);visibility:visible;transition-delay:0s}
+#ov a.n{display:block;width:max-content;max-width:100%;font:300 clamp(38px,8vw,92px)/1.1 var(--h);letter-spacing:-.03em;text-decoration:none;color:var(--mu);transition:color .2s,transform .3s}
+#ov a.n:hover,#ov a.n[aria-current]{color:var(--fg);transform:translateX(8px)}
+#ov a.n[aria-current]::before{content:"";display:inline-block;width:.22em;height:.22em;border-radius:50%;background:var(--or);margin-right:.3em;vertical-align:.14em}
+#cl{position:absolute;top:20px;left:24px;background:none;border:0;cursor:pointer;color:var(--mu);padding:8px}
+main{position:relative;z-index:2}
+.pg{display:none;padding:0 7vw}.pg.on{display:block;animation:f .7s both}
+@keyframes f{from{opacity:0}}
+.sec{min-height:100vh;padding:120px 0 80px;display:flex;flex-direction:column;justify-content:center}
+h1,h2{font-family:var(--h);font-weight:300;letter-spacing:-.045em;line-height:.95;margin:0}
+h1{font-size:clamp(44px,10.5vw,168px)}h2{font-size:clamp(34px,6.4vw,96px)}
+.sub{font-size:clamp(17px,1.8vw,21px);color:#d6d2ca;max-width:36ch;margin:28px 0 0}
+.lb{font:500 12px var(--b);letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin:0 0 18px}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:14px 26px;border-radius:99px;border:1px solid var(--or);background:none;cursor:pointer;text-decoration:none;font-weight:500;transition:background .3s,color .3s;width:max-content}
+.cta:hover{background:var(--or);color:#120600}
+.ul{position:relative;text-decoration:none;cursor:pointer}.ul::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:100%;background:var(--or);transform:scaleX(0);transform-origin:0 0;transition:transform .35s}.ul:hover::after{transform:scaleX(1)}
+.ch{min-height:130vh;position:relative}
+.ch .stk{position:sticky;top:0;height:100vh;display:grid;align-items:center;gap:4vw}
+.ch svg.v{width:100%;height:auto;max-height:70vh;overflow:visible}
+#c1 .stk{grid-template-columns:1fr 1.5fr}
+#c2 .stk{grid-template-columns:1.4fr 1fr}#c2 .tx{order:2;align-self:start;padding-top:22vh}
+#c3 .stk{grid-template-columns:1fr 1.5fr}#c3 svg.v{overflow:hidden;min-width:0}
+.tx p{color:#d6d2ca;margin:22px 0 0;max-width:30ch}
+.big{display:block;font:300 clamp(34px,6vw,88px)/1.08 var(--h);letter-spacing:-.04em;color:var(--mu);transition:color .3s,transform .4s;width:max-content;max-width:100%}
+.big:hover{color:var(--fg);transform:translateX(14px)}
+.br{container-type:inline-size;border:1px solid var(--ln);border-radius:10px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.65)}
+.tb{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#0c0c0c;border-bottom:1px solid var(--ln)}.tb i{width:8px;height:8px;border-radius:50%;background:#2c2c2c}.tb b{margin-left:10px;font:400 11px var(--b);color:var(--mu);background:#171717;padding:3px 12px;border-radius:99px}
+.bd{position:relative;aspect-ratio:16/10;overflow:hidden;font-family:var(--h)}.bd>*{position:absolute}.bd i{display:block}
+.ags{display:grid;grid-template-columns:1.2fr 1fr;gap:6vw;padding:6vh 0 10vh;align-items:start}.agl{list-style:none;margin:0;padding:0;grid-column:1;grid-row:1}
+.ag{position:relative;display:flex;align-items:baseline;gap:20px;width:100%;background:none;border:0;border-bottom:1px solid var(--ln);padding:18px 0;text-align:left;cursor:pointer;color:var(--mu);font:300 clamp(26px,3.6vw,52px)/1.1 var(--h);letter-spacing:-.04em;transition:color .3s,padding .3s}
+.ag small{font:500 13px var(--b);letter-spacing:.1em;min-width:2ch}.ag .ar{margin-left:auto;color:var(--or);opacity:0;transform:translateX(-10px);transition:opacity .3s,transform .3s;font-size:.6em}
+.ag::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--or);transform:scaleX(0);transform-origin:0 0;transition:transform .45s}
+.ag:hover,.ag[aria-pressed=true]{color:var(--fg);padding-left:12px}.ag:hover .ar,.ag[aria-pressed=true] .ar{opacity:1;transform:none}.ag:hover::after,.ag[aria-pressed=true]::after{transform:none}
+.agp{grid-column:2;grid-row:1;position:sticky;top:110px;min-height:400px;border-left:1px solid var(--ln);padding-left:3vw}
+.agp h3{font:300 clamp(28px,3.4vw,46px)/1.05 var(--h);letter-spacing:-.03em;margin:0 0 14px}.agp p{max-width:38ch;margin:0 0 12px;color:#d6d2ca}.agp p.lb{color:var(--or)}.agp .uc{color:var(--mu);font-size:15px}.agp svg{width:100%;max-width:340px;height:auto;margin-top:18px}.sw>*{animation:f .5s both}
+@media (max-width:760px){.ags{grid-template-columns:1fr}.agp{grid-column:1;grid-row:1;position:relative;top:0;min-height:340px;border-left:0;padding-left:0}.agl{grid-row:2}}
+.proc{position:relative;padding:12vh 0 10vh 7vw;min-height:150vh}
+.proc::before{content:"";position:absolute;left:0;top:12vh;bottom:10vh;width:2px;background:var(--or);transform-origin:0 0;transform:scaleY(var(--p,0))}
+.proc div{font:300 clamp(48px,10vw,150px)/1 var(--h);letter-spacing:-.05em;margin-bottom:11vh;opacity:clamp(.16,calc((var(--p,0) - var(--i)*.17)*7),1);transform:translateX(calc((1 - clamp(0,calc((var(--p,0) - var(--i)*.17)*7),1))*-40px))}
+.dm{margin-top:60px;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chips button{background:none;border:1px solid var(--ln);border-radius:99px;padding:11px 20px;cursor:pointer;transition:border-color .2s}
+.chips button:hover,.chips button[aria-pressed=true]{border-color:var(--or)}
+.st{display:flex;align-items:center;gap:14px;margin:36px 0 22px;flex-wrap:wrap}
+.st span{font:300 clamp(22px,3.4vw,40px) var(--h);letter-spacing:-.03em;color:#4a4742;transition:color .4s}.st span.a{color:var(--fg)}.st i{flex:0 0 40px;height:1px;background:var(--ln)}
+#out{min-height:90px;font-size:clamp(18px,2.2vw,26px);max-width:34ch;color:var(--fg)}
+.note{color:var(--mu);font-size:13px;margin-top:10px}
+.sheet{display:flex;flex-wrap:wrap;gap:30px;align-items:flex-end;margin-top:60px}
+.sheet .t{display:grid;place-items:center;width:130px;height:130px;border-radius:50%;border:1px solid var(--ln)}
+.sheet .l{background:var(--fg);color:#050505}
+form{display:grid;gap:26px;max-width:640px;margin-top:50px}
+.fl{display:grid;gap:6px}label{font-size:14px;color:var(--mu)}
+input,select,textarea{width:100%;background:none;border:0;border-bottom:1px solid var(--ln);color:var(--fg);padding:12px 0;font:18px var(--b);border-radius:0}
+select option{background:#111}input:focus,select:focus,textarea:focus{outline:0;border-color:var(--or)}
+.er{color:#ff9d86;font-size:14px}[aria-invalid=true]{border-color:#ff9d86}
+.hp{position:absolute;left:-9999px}
+#sx{display:none;padding:14px 18px;border:1px solid var(--ln);border-radius:12px}#sx.s{display:block}#sx.ok{border-color:#6ad39a}#sx.no{border-color:#ff9d86}
+.fl-p{stroke-dasharray:6 8}
+@keyframes dash{to{stroke-dashoffset:-28}}.fl-p{animation:dash 3s linear infinite}
+@media (max-width:760px){#c1 .stk,#c2 .stk,#c3 .stk{grid-template-columns:1fr;align-content:center}#c2 .tx{order:0;padding-top:0}.ch{min-height:110vh}.proc{padding-left:6vw}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* home: wireframe to finished (one composition, per-element progress) */
+.site{container-type:inline-size;position:relative;aspect-ratio:16/11;width:100%;border-radius:14px;border:1px solid rgba(243,240,235,.18);overflow:hidden;background:color-mix(in srgb,#0c0c0c calc(clamp(0,var(--p,0)*2,1)*100%),transparent);box-shadow:0 30px 90px rgba(0,0,0,calc(clamp(0,var(--p,0)*2,1)*.7)),0 0 80px rgba(255,113,56,calc(clamp(0,var(--p,0),1)*.14))}
+.site .e{position:absolute;z-index:1;--k:clamp(0,calc((var(--p,0)*1.25 - var(--d,0))*2.4),1);transform:translateY(calc((1 - var(--k))*1cqw))}
+.sk{white-space:nowrap;color:color-mix(in srgb,var(--c,#F3F0EB) calc(var(--k)*100%),transparent)}
+.sk::after{content:"";position:absolute;left:0;right:0;top:50%;height:max(1px,.1em);background:#6f6a62;opacity:calc(1 - var(--k));border-radius:2px}
+.site .bt{--c:#150700;padding:.9cqw 2.2cqw;font-weight:600;border-radius:calc(var(--k)*9cqw);background:color-mix(in srgb,#FF7138 calc(var(--k)*100%),transparent)}
+.site h4{margin:0;font:300 7.6cqw/1 var(--h);letter-spacing:-.05em;z-index:2}
+.gv,.gh{position:absolute;pointer-events:none;opacity:calc(.55*(1 - clamp(0,var(--p,0)*2.4,1)))}.gv{top:0;bottom:0;border-left:1px dotted #6f6a62}.gh{left:0;right:0;border-top:1px dotted #6f6a62}
+.im{border:1px dashed color-mix(in srgb,#807b72 calc((1 - var(--k))*100%),transparent);border-radius:calc(var(--k)*17cqw) calc(var(--k)*17cqw) .6cqw .6cqw;overflow:hidden;box-shadow:0 0 calc(var(--k)*7cqw) rgba(255,113,56,calc(var(--k)*.3))}
+.im::before{content:"";position:absolute;inset:0;opacity:var(--k);transform:scale(calc(1.12 - var(--k)*.12));background:radial-gradient(ellipse 70% 22% at 28% 100%,#050505 60%,transparent 62%),radial-gradient(ellipse 80% 26% at 80% 104%,#0d0d0d 60%,transparent 62%),radial-gradient(circle at 50% 36%,#ffd6b0 0,#FF7138 11%,rgba(255,113,56,.25) 26%,transparent 46%),linear-gradient(180deg,#1d1012,#2b150f 58%,#0b0b0b)}
+.im::after{content:"";position:absolute;inset:0;opacity:calc(1 - var(--k));background:linear-gradient(to top right,transparent calc(50% - .5px),#6f6a62 50%,transparent calc(50% + .5px)),linear-gradient(to top left,transparent calc(50% - .5px),#6f6a62 50%,transparent calc(50% + .5px))}
+.th{top:54cqw;width:13cqw;height:9.5cqw;overflow:hidden;border:1px dashed color-mix(in srgb,#807b72 calc((1 - var(--k))*100%),transparent);border-radius:calc(var(--k)*1cqw)}
+.th::before{content:"";position:absolute;inset:0;opacity:var(--k);background:var(--g)}
+.th b{position:absolute;left:1cqw;bottom:.8cqw;font:500 1.3cqw var(--b);color:color-mix(in srgb,#F3F0EB calc(var(--k)*100%),transparent)}
+/* websites showcase */
+.shw{position:relative;margin:0}
+.br2{container-type:inline-size;border-radius:14px;border:1px solid rgba(243,240,235,.16);overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.8),0 0 100px rgba(255,113,56,.14)}
+.bd2{position:relative;aspect-ratio:16/9.6;overflow:hidden;font-family:var(--h);color:#F3F0EB;background:radial-gradient(ellipse 60% 70% at 72% 52%,#3b1a0c 0,#120906 55%,#070504 100%)}
+.bd2>*,.bt2>*{position:absolute}.bd2 i,.bt2 i{display:block}
+@keyframes fy{50%{transform:translateY(-1.4cqw) rotate(1.2deg)}}@keyframes rg{to{rotate:360deg}}@keyframes br{50%{opacity:.55;scale:1.08}}
+.gl{animation:br 8s ease-in-out infinite}.rg{animation:rg 46s linear infinite}.bt2{animation:fy 9s ease-in-out infinite}
+.ph{position:absolute;right:-2%;bottom:-9%;width:17%;container-type:inline-size;aspect-ratio:9/18;border-radius:14% / 7%;border:1px solid rgba(243,240,235,.25);background:#0b0807;box-shadow:0 30px 70px rgba(0,0,0,.8);overflow:hidden;animation:fy 11s ease-in-out infinite reverse}
+.ph>div{padding:12cqw 10cqw;display:flex;flex-direction:column;gap:5cqw;font-family:var(--h)}
+
+/* ===== websites: curated portfolio ===== */
+.wh{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.35fr);gap:5vw;align-items:center;min-height:100vh;padding:120px 0 80px}
+.wht h1{font-size:clamp(38px,4.6vw,78px);text-wrap:balance}.wht .sub{max-width:30ch}
+.whv{position:relative;min-width:0;padding-bottom:3vh}
+.tagc{display:inline-block;margin:0 0 16px;font:500 12px var(--b);letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.sc{display:grid;gap:5vw;padding:14vh 0;border-top:1px solid var(--ln)}
+.sc figure{margin:0;min-width:0;transition:transform .5s}.sc figure:hover{transform:translateY(-6px)}
+.sc .scm{min-width:0}.sc .nm{font:500 12px var(--b);letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.sc h3{font:300 clamp(28px,3.4vw,46px)/1.05 var(--h);letter-spacing:-.03em;margin:14px 0}.sc p{color:#d6d2ca;max-width:34ch;margin:0}.sc .tg{color:var(--mu);font-size:14px;margin-top:18px}
+.sc1{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:end}
+.sc2{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);align-items:start}.sc2 .scm{padding-top:10vh}
+.sc3{grid-template-columns:1fr;justify-items:center}.sc3 figure,.sc3 .scm{width:min(100%,980px)}.sc3 .scm{display:grid;grid-template-columns:1fr 1fr;gap:0 5vw;align-items:start}.sc3 .scm .nm,.sc3 h3{grid-column:1}.sc3 p,.sc3 .tg{grid-column:2;grid-row:1/span 2}.sc3 .tg{grid-row:3;margin-top:0}
+.sc4{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);align-items:center}.sc4 figure{justify-self:end;width:min(100%,640px)}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5vw;padding:12vh 0 10vh;border-top:1px solid var(--ln)}.gal header{grid-column:1/-1}.gal figure{margin:0}.gal svg.cp{width:100%;height:auto;display:block}.gal figcaption{color:var(--mu);font-size:14px;margin-top:12px}
+.rv{opacity:1;transform:none}.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.js .rv.in{opacity:1;transform:none}
+@media (max-width:900px){.wh{grid-template-columns:1fr;min-height:0;padding-top:110px;gap:48px}.sc{padding:9vh 0}.sc1,.sc2,.sc4{grid-template-columns:1fr}.sc2 .scm{order:2;padding-top:0}.sc4 figure{justify-self:stretch;width:100%}.sc3 .scm{grid-template-columns:1fr}.sc3 p,.sc3 .tg{grid-column:1;grid-row:auto}.gal{grid-template-columns:1fr;gap:40px}}
+/* ===== automation: Connect > Automate > Execute ===== */
+.am{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:4vw;align-items:center;min-height:100vh;padding:110px 0 70px}
+.amt h1{font-size:clamp(40px,6vw,98px)}
+.amv{position:relative;min-width:0}.amv svg{display:block;width:100%;height:auto}.vm{display:none!important}
+.amv .mod{stroke-width:1}
+.amv .a{font:600 14px Manrope,sans-serif;fill:#F3F0EB}.amv .c{font:11px Inter,sans-serif;fill:#9b968e}.amv .r{font:11.5px Inter,sans-serif;fill:#d6d2ca}
+.amv .hd{font:500 10.5px Inter,sans-serif;letter-spacing:.16em;fill:#9b968e;transition:fill .5s}.amv .rl{stroke:rgba(243,240,235,.12);fill:none}
+.amv .ic{fill:none;stroke:#F3F0EB;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.85}.amv .tl{fill:#141417;stroke:rgba(243,240,235,.12)}
+.amv .cn{fill:none;stroke:#4a4742;stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:0}
+.amv .ac{fill:none;stroke:#FF7138;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.amv .sg{fill:none;stroke:#FFB08A;stroke-width:3;stroke-linecap:round;stroke-dasharray:.06 3;stroke-dashoffset:-1.1;opacity:0}
+.amv .dt{fill:#FF7138;transition:fill .5s}.amv .hr{fill:none;stroke:#FF7138;stroke-width:1.3;stroke-dasharray:3 5;transition:stroke .6s}.amv .hc{fill:rgba(255,113,56,.14);stroke:#FF7138;stroke-width:1.4;transition:fill .6s,stroke .6s}.amv .pw{fill:none;stroke:#FF7138;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.amv .ck{fill:rgba(255,113,56,.16);stroke:#FF7138;transition:fill .6s,stroke .6s}.amv .tk{fill:none;stroke:#FF7138;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.amv .rt{fill:none;stroke:#FF7138;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.amv .of{fill:none;stroke:rgba(255,113,56,.45)}
+.amv .src,.amv .hub,.amv .out,.amv .rw,.amv .cn,.amv .ac,.amv .tk,.amv .hd,.amv .rl{transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1),stroke-dashoffset 1s ease}
+.amv .src,.amv .hub,.amv .out,.amv .rw{transform-box:fill-box;transform-origin:center}
+.amv .src{transition-delay:calc(var(--d,0)*1s)}
+.amv .rw{transition-delay:calc(var(--d,0)*1s + .2s)}
+.amv[data-s="0"] .src{opacity:0;transform:translateX(-18px)}
+.amv[data-s="0"] .hub,.amv[data-s="0"] .out{opacity:0;transform:scale(.95)}
+.amv[data-s="0"] .cn,.amv[data-s="0"] .ac,.amv[data-s="1"] .ac,.amv[data-s="0"] .tk,.amv[data-s="1"] .tk,.amv[data-s="2"] .tk{stroke-dashoffset:1}
+.amv[data-s="0"] .hd,.amv[data-s="0"] .rl{opacity:0}
+.amv[data-s="0"] .sg,.amv[data-s="1"] .sg,.amv[data-s="3"] .sg{opacity:0}
+.amv[data-s="0"] .sg,.amv[data-s="1"] .sg{stroke-dashoffset:.06;transition:none}
+.amv[data-s="0"] .ac,.amv[data-s="1"] .ac{transition:none}
+.amv[data-s="2"] .sg{opacity:1;stroke-dashoffset:-1.1;transition:stroke-dashoffset 1.5s cubic-bezier(.5,0,.4,1),opacity .2s}
+.amv[data-s="2"] .sg2{transition-delay:1.5s,1.5s;opacity:0;animation:sg2 .01s 1.5s forwards}
+@keyframes sg2{to{opacity:1}}
+.amv[data-s="2"] .ac{transition:stroke-dashoffset 1.5s cubic-bezier(.5,0,.4,1)}.amv[data-s="2"] .ac2{transition-delay:1.5s}
+.amv[data-s="0"] .out,.amv[data-s="1"] .out,.amv[data-s="2"] .out{opacity:.55}
+.amv[data-s="0"] .rw,.amv[data-s="1"] .rw,.amv[data-s="2"] .rw{opacity:0;transform:translateY(5px)}
+.amv[data-s="0"] .ck,.amv[data-s="1"] .ck,.amv[data-s="2"] .ck{fill:transparent;stroke:#4a4742}
+.amv[data-s="0"] .dt,.amv[data-s="1"] .dt{fill:#3a3733}
+.amv[data-s="0"] .hr,.amv[data-s="1"] .hr,.amv[data-s="0"] .hc,.amv[data-s="1"] .hc{stroke:#3a3733;fill:transparent}
+.amv[data-s="2"] .hr{animation:hs 8s linear infinite;transform-box:fill-box;transform-origin:center}@keyframes hs{to{rotate:360deg}}
+.amv[data-s="1"] .k1,.amv[data-s="2"] .k2,.amv[data-s="3"] .k3{fill:#FF7138}
+.amv[data-s="3"] .tk{transition-delay:.3s}
+.rpl{position:absolute;right:0;bottom:-34px;background:none;border:0;color:var(--mu);cursor:pointer;padding:6px 4px;font-size:13px;opacity:.38;transition:opacity .3s,color .3s}.amv:hover .rpl,.rpl:hover,.rpl:focus-visible{opacity:1;color:var(--fg)}
+.amst{padding:6vh 0 12vh}.amc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 4vw;border-top:1px solid var(--ln);margin-top:8px}.amc>div{padding-top:30px}.amc small{font:500 13px var(--b);letter-spacing:.1em;color:var(--or)}.amc h3{font:300 clamp(28px,3.4vw,46px)/1.05 var(--h);letter-spacing:-.03em;margin:14px 0}.amc p{color:#d6d2ca;max-width:30ch;margin:0}
+body[data-pg=automation] #fb i,body[data-pg=websites] #fb i{width:min(30vw,300px);top:-16%;left:auto;right:-12%;opacity:.75}
+@media (max-width:980px){.am{grid-template-columns:1fr;gap:56px;min-height:0;padding-top:110px}}
+@media (max-width:560px){.vd{display:none!important}.vm{display:block!important}.amt h1{font-size:13.5vw}.amc{grid-template-columns:1fr;gap:0}.amc>div{border-bottom:1px solid var(--ln);padding-bottom:30px}.amc>div+div{padding-top:30px}.amst{padding-bottom:8vh}}
+@media (prefers-reduced-motion:reduce){.rpl{display:none}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="m" viewBox="0 0 64 64"><path d="M12 21.5h38M16.5 21.5v26.5M16.5 21.5C16.5 9 41 9 42.5 21.5M29 21.5h4c8 0 8 12-2 13M31 34.5l11.5 13.5" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol></svg>
+<div id="bar"></div>
+<canvas id="gl" aria-hidden="true"></canvas><div id="fb" aria-hidden="true"><i></i></div>
+<a class="brand" href="#home" aria-label="ORriqo home"><svg class="mk" aria-hidden="true"><use href="#m"/></svg><span class="wm" aria-label="ORriqo"><span class="w-en">OR</span><svg class="w-hi" viewBox="0 0 38 42" aria-hidden="true" fill="none"><path d="M3 12.5H35" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M6.8 12.5V33" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M6.8 12.5C6.8 2.2 27.5 2.2 29 12.5" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M18.2 12.5H21.5C28 12.5 28 22 20.2 23" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M20.2 23L29 33" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/></svg><span class="w-en">qo</span></span></a>
+<button id="mb" aria-expanded="false" aria-controls="ov" aria-label="Open menu"><svg class="mk" aria-hidden="true"><use href="#m"/></svg></button>
+<nav id="ov" aria-label="Main"><button id="cl">Close ✕</button>
+<a class="n" href="#home">Home</a><a class="n" href="#about">About</a><a class="n" href="#websites">Websites</a><a class="n" href="#agents">AI Agents</a><a class="n" href="#automation">Automation</a><a class="n" href="#contact">Contact</a></nav>
+
+<main>
+<div class="pg" id="home" data-t="ORriqo — Beyond digital. Into what’s next.">
+<section class="sec"><h1>Beyond digital.<br>Into what’s next.</h1>
+<p class="sub">Web experiences. Intelligent agents. Seamless automation.</p>
+<button class="cta" data-scroll="c1">Explore ORriqo</button></section>
+<section class="ch" id="c1" data-p="pin" style="min-height:150vh"><div class="stk"><div class="tx"><p class="lb">Digital Experiences</p><h2>Websites designed with clarity.</h2><p>Built with purpose.</p><a class="cta" href="#websites">Explore Websites</a></div>
+<div class="v site" role="img" aria-label="A website taking shape: a wireframe becoming a finished design">
+<i class="gv" style="left:6cqw"></i><i class="gv" style="left:50cqw"></i><i class="gv" style="left:94cqw"></i><i class="gh" style="top:17cqw"></i><i class="gh" style="top:52cqw"></i>
+<span class="e sk" style="--d:0;left:6cqw;top:3.4cqw;font:700 1.6cqw var(--h);letter-spacing:.3em">HALCYON</span>
+<span class="e sk" style="--d:.08;right:22cqw;top:3.7cqw;font:1.5cqw var(--b)">Stays &nbsp; Journal &nbsp; About</span>
+<span class="e sk bt" style="--d:.14;right:6cqw;top:2.6cqw;font-size:1.5cqw">Book</span>
+<h4 class="e sk" style="--d:.2;left:6cqw;top:19cqw">Slow travel,</h4><h4 class="e sk" style="--d:.28;left:6cqw;top:27.5cqw">composed.</h4>
+<span class="e sk" style="--d:.36;--c:#cfcac1;left:6cqw;top:38cqw;font:1.7cqw var(--b)">Twelve quiet stays,</span><span class="e sk" style="--d:.4;--c:#cfcac1;left:6cqw;top:41cqw;font:1.7cqw var(--b)">chosen by hand.</span>
+<span class="e sk bt" style="--d:.46;left:6cqw;top:46.5cqw;font-size:1.6cqw">View stays</span>
+<div class="e im" style="--d:.5;left:52cqw;top:11cqw;width:36cqw;height:48cqw"></div>
+<span class="e th" style="--d:0.6;--g:linear-gradient(160deg,#FF7138,#3a140a);left:6cqw"><b>Lisbon</b></span><span class="e th" style="--d:0.66;--g:linear-gradient(160deg,#4a5a9a,#0b0b0b);left:22cqw"><b>Kyoto</b></span><span class="e th" style="--d:0.72;--g:linear-gradient(160deg,#7a5cff,#120a24);left:38cqw"><b>Oaxaca</b></span></div></div></section>
+<section class="ch" id="c2"><div class="stk"><svg class="v" viewBox="0 0 520 240" role="img" aria-label="An instruction becomes an outcome through an agent">
+<g fill="none" stroke="#F3F0EB" stroke-width="1.5"><rect x="8" y="90" width="120" height="60" rx="30"/><rect x="392" y="90" width="120" height="60" rx="30"/></g>
+<g fill="#F3F0EB"><rect x="30" y="112" width="76" height="5" rx="2.5"/><rect x="30" y="126" width="48" height="5" rx="2.5"/><rect x="414" y="112" width="76" height="5" rx="2.5" fill="#FF7138"/><rect x="414" y="126" width="56" height="5" rx="2.5"/></g>
+<path class="fl-p" d="M130 120H200M320 120H390" stroke="#FF7138" fill="none"/>
+<path fill="#050505" stroke="#FF7138" stroke-width="2" d="M260 50C300 44 322 80 318 120C314 164 280 190 244 178C206 166 196 120 214 88C226 64 244 52 260 50Z"><animate attributeName="d" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines=".4 0 .6 1;.4 0 .6 1" values="M260 50C300 44 322 80 318 120C314 164 280 190 244 178C206 166 196 120 214 88C226 64 244 52 260 50Z;M270 60C312 70 316 100 308 138C300 176 262 186 232 168C196 148 204 100 226 76C240 60 254 56 270 60Z;M260 50C300 44 322 80 318 120C314 164 280 190 244 178C206 166 196 120 214 88C226 64 244 52 260 50Z"/></path>
+<circle r="4" fill="#3d7bff"><animateMotion dur="3s" repeatCount="indefinite" path="M130 120H390"/></circle></svg>
+<div class="tx"><p class="lb">Intelligent Agents</p><h2>Agents built around real needs.</h2><p>Custom, for your business.</p><a class="cta" href="#agents">Explore Agents</a></div></div></section>
+<section class="ch" id="c3" data-p><div class="stk"><div class="tx"><p class="lb">Intelligent Automation</p><h2>Less manual work.</h2><p>Better-connected processes.</p><a class="cta" href="#automation">Explore Automation</a></div>
+<svg class="v flow" viewBox="-10 -6 540 212" role="img" aria-label="Scattered tasks connecting into one flowing process"><use href="#flowdef"/></svg></div></section>
+<section class="sec"><h2>Let’s make<br>what’s next.</h2><a class="cta" href="#contact">Start a conversation</a></section>
+</div>
+
+<div class="pg" id="websites" data-t="Websites — ORriqo">
+<section class="wh"><div class="wht"><p class="lb">Websites</p><h1>Websites, designed to stand apart.</h1><p class="sub">Distinctive digital experiences, built around your business.</p><a class="cta" href="#contact">Discuss Your Project</a></div>
+<div class="whv"><p class="tagc">Original concept · Fragrance house</p><div class="shw" role="img" aria-label="A finished sample website for a fragrance house, with a matching mobile product screen"><div class="br2"><div class="tb"><i></i><i></i><i></i><b>oro.example</b></div><div class="bd2">
+<i class="gl" style="left:48cqw;top:0;width:50cqw;height:50cqw;border-radius:50%;background:radial-gradient(circle,rgba(255,113,56,.35),transparent 65%)"></i>
+<i class="rg" style="left:56cqw;top:6cqw;width:36cqw;height:36cqw;border-radius:50%;border:1px solid rgba(243,240,235,.16);border-top-color:#FF7138"></i>
+<i style="left:40cqw;top:-4cqw;width:52cqw;height:52cqw;border-radius:50%;border:1px solid rgba(243,240,235,.06)"></i>
+<b style="left:5cqw;top:3.6cqw;font:700 1.7cqw var(--h);letter-spacing:.42em">ORO</b>
+<span style="left:34cqw;top:3.9cqw;font:1.4cqw var(--b);display:flex;gap:3cqw;color:#bdb6aa"><span>Collection</span><span>Atelier</span><span>Journal</span></span>
+<span style="right:5cqw;top:3.5cqw;font:1.4cqw var(--b);display:flex;gap:2.4cqw;align-items:center"><span>Search</span><span style="border:1px solid rgba(243,240,235,.3);border-radius:9cqw;padding:.5cqw 1.6cqw">Bag 0</span></span>
+<h4 style="left:5cqw;top:16cqw;margin:0;font:300 8.6cqw/.98 var(--h);letter-spacing:-.05em">Made of<br>amber light.</h4>
+<p style="left:5cqw;top:38cqw;margin:0;font:1.6cqw/1.5 var(--b);color:#d6cfc4;max-width:30cqw">A small collection of slowly composed scents.</p>
+<span style="left:5cqw;top:46cqw;display:flex;gap:1.4cqw;align-items:center"><span style="background:#FF7138;color:#150700;font:600 1.5cqw var(--b);padding:1.1cqw 2.8cqw;border-radius:9cqw">Discover the collection</span><span style="width:3.6cqw;height:3.6cqw;border:1px solid rgba(243,240,235,.35);border-radius:50%;display:grid;place-items:center;font:1.5cqw var(--b)">↗</span></span>
+<i style="left:5cqw;right:5cqw;bottom:6.2cqw;height:1px;background:rgba(243,240,235,.14)"></i>
+<span style="left:5cqw;bottom:3cqw;font:1.2cqw var(--b);color:#9b968e;display:flex;gap:5cqw"><span>No. 07</span><span>50 ml</span><span>Eau de parfum</span></span>
+<i style="left:62cqw;top:41cqw;width:24cqw;height:3cqw;border-radius:50%;background:radial-gradient(rgba(255,113,56,.45),transparent 70%)"></i>
+<div class="bt2" style="left:66cqw;top:11cqw;width:16cqw;height:28cqw"><i style="left:5cqw;top:0;width:6cqw;height:5cqw;border-radius:1cqw;background:linear-gradient(90deg,#8a5a2b,#e8b878 40%,#6a4018)"></i><i style="left:6.5cqw;top:4.8cqw;width:3cqw;height:2.4cqw;background:#c99a5a"></i><i style="left:0;top:7cqw;width:16cqw;height:20cqw;border-radius:3cqw 3cqw 2cqw 2cqw;background:linear-gradient(100deg,rgba(255,200,140,.95),#FF7138 38%,#7a2a0a 72%,#2a0f06);box-shadow:inset 0 0 3cqw rgba(255,255,255,.25),0 3cqw 6cqw rgba(255,113,56,.35)"></i><i style="left:2cqw;top:9cqw;width:1.6cqw;height:15cqw;border-radius:1cqw;background:linear-gradient(rgba(255,255,255,.7),transparent)"></i><span style="left:4.6cqw;top:15.5cqw;font:600 1.2cqw var(--b);letter-spacing:.3em;color:#2a0f06">ORO</span></div>
+<span style="left:80cqw;top:20cqw;font:1.2cqw var(--b);color:#d6cfc4;border:1px solid rgba(243,240,235,.22);border-radius:9cqw;padding:.6cqw 1.6cqw">Amber, fig, cedar</span>
+</div></div>
+<div class="ph"><div><i style="display:block;width:30cqw;height:44cqw;margin:6cqw auto 0;border-radius:6cqw;background:linear-gradient(100deg,rgba(255,200,140,.95),#FF7138 38%,#7a2a0a 72%,#2a0f06)"></i><b style="font:300 11cqw var(--h)">No. 07</b><span style="font:6cqw var(--b);color:#bdb6aa">Amber, fig, cedar</span><span style="background:#FF7138;color:#150700;font:600 6.5cqw var(--b);padding:4cqw;border-radius:9cqw;text-align:center">Add to bag</span></div></div></div>
+</div></section>
+<section class="sc sc1 rv"><figure><div class="br"><div class="tb"><i></i><i></i><i></i><b>northline.example</b></div><div class="bd" role="img" aria-label="Sample business website with editorial headline and arch image" style="background:#F3F0EB;color:#050505"><b style="left:5cqw;top:4cqw;font-size:2.4cqw;letter-spacing:.2em">NORTHLINE</b><span style="right:5cqw;top:4.2cqw;font:1.8cqw var(--b);display:flex;gap:3cqw"><span>Work</span><span>Studio</span><span>Contact</span></span><i style="left:5cqw;top:14cqw;width:8cqw;height:.5cqw;background:#FF7138"></i><h4 style="left:5cqw;top:17cqw;margin:0;font-size:11cqw;line-height:.92;font-weight:300;letter-spacing:-.05em">Structure,<br>considered.</h4><p style="left:5cqw;bottom:6cqw;margin:0;font:1.9cqw/1.4 var(--b);max-width:30cqw">Architecture and interiors, drawn with restraint.</p><div style="right:6cqw;top:11cqw;width:30cqw;height:44cqw;border-radius:15cqw 15cqw 0 0;background:linear-gradient(180deg,#1c1c1c,#050505 70%);overflow:hidden"><i style="position:absolute;left:7cqw;top:9cqw;width:16cqw;height:16cqw;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffb089,#FF7138 60%,#b8340c)"></i><i style="position:absolute;left:0;right:0;bottom:0;height:14cqw;background:#F3F0EB"></i><i style="position:absolute;left:5cqw;bottom:14cqw;width:20cqw;height:9cqw;background:#2a2a2a"></i></div></div></div></figure><div class="scm"><p class="nm">01 · Business website</p><h3>Clear, confident, editorial.</h3><p>A professional practice presented with strong hierarchy, considered typography and room to breathe.</p><p class="tg">Original concept — not client work.</p></div></section>
+<section class="sc sc2 rv"><div class="scm"><p class="nm">02 · E-commerce</p><h3>Product pages that sell quietly.</h3><p>A focused buying experience: one object, one decision, nothing in the way.</p><p class="tg">Original concept — not client work.</p></div><figure><div class="br"><div class="tb"><i></i><i></i><i></i><b>lumen.example/halo</b></div><div class="bd" role="img" aria-label="Sample e-commerce product page for a lamp" style="background:#0a0a0a;color:#F3F0EB"><b style="left:5cqw;top:4cqw;font-size:2.4cqw;letter-spacing:.3em">LUMEN</b><span style="left:50%;transform:translateX(-50%);top:4.4cqw;font:1.7cqw var(--b);color:#9b968e;display:flex;gap:3cqw"><span>Lamps</span><span>Objects</span><span>Journal</span></span><span style="right:5cqw;top:4.2cqw;font:1.7cqw var(--b)">Bag (1)</span><i style="left:2cqw;top:8cqw;width:46cqw;height:46cqw;border-radius:50%;background:radial-gradient(circle,rgba(255,113,56,.28),transparent 66%)"></i><i style="left:17cqw;top:19cqw;width:20cqw;height:12cqw;border-radius:10cqw 10cqw 2cqw 2cqw;background:linear-gradient(160deg,#ffb089,#FF7138 45%,#5a1a05);box-shadow:0 0 6cqw rgba(255,113,56,.5)"></i><i style="left:26.4cqw;top:31cqw;width:1.2cqw;height:13cqw;background:#2a2a2a"></i><i style="left:20cqw;top:43.6cqw;width:14cqw;height:2cqw;border-radius:50%;background:#1d1d1d"></i><h4 style="left:54cqw;top:15cqw;margin:0;font:300 5cqw/1 var(--h);letter-spacing:-.04em">Halo Lamp</h4><p style="left:54cqw;top:24cqw;margin:0;font:2.2cqw var(--b)">$240</p><span style="left:54cqw;top:30cqw;display:flex;gap:1.8cqw"><i style="width:2.6cqw;height:2.6cqw;border-radius:50%;background:#FF7138;outline:1px solid #F3F0EB;outline-offset:3px"></i><i style="width:2.6cqw;height:2.6cqw;border-radius:50%;background:#F3F0EB"></i><i style="width:2.6cqw;height:2.6cqw;border-radius:50%;background:#3a3a3a"></i></span><span style="left:54cqw;top:38cqw;background:#FF7138;color:#120600;font:600 1.8cqw var(--b);padding:1.4cqw 3.4cqw;border-radius:9cqw">Add to bag</span></div></div></figure></section>
+<section class="sc sc3 rv"><figure><div class="br"><div class="tb"><i></i><i></i><i></i><b>app.example/orders</b></div><div class="bd" role="img" aria-label="Sample web application showing weekly orders" style="background:#070707;color:#F3F0EB"><div style="left:0;top:0;bottom:0;width:11cqw;border-right:1px solid #1d1d1d;padding:4cqw 2.6cqw;display:flex;flex-direction:column;gap:2.4cqw;font:1.4cqw var(--b);color:#9b968e"><span style="color:#FF7138">Orders</span><span>Stock</span><span>Customers</span><span>Reports</span></div><h4 style="left:14cqw;top:4cqw;margin:0;font:400 2.6cqw var(--h);letter-spacing:-.02em">Orders this week</h4><span style="right:4cqw;top:4cqw;font:1.4cqw var(--b);color:#9b968e;border:1px solid #222;border-radius:9cqw;padding:.6cqw 2cqw">Last 7 days</span><div style="left:14cqw;top:11cqw;display:flex;gap:6cqw;font-family:var(--b)"><div><small style="display:block;color:#9b968e;font-size:1.3cqw">Orders</small><b style="font:300 4.6cqw var(--h);letter-spacing:-.04em">1,284</b></div><div><small style="display:block;color:#9b968e;font-size:1.3cqw">Revenue</small><b style="font:300 4.6cqw var(--h);letter-spacing:-.04em">$48.2k</b></div><div><small style="display:block;color:#9b968e;font-size:1.3cqw">Fulfilled</small><b style="font:300 4.6cqw var(--h);letter-spacing:-.04em">98.1%</b></div></div><svg viewBox="0 0 200 60" preserveAspectRatio="none" style="left:14cqw;top:25cqw;width:82cqw;height:25cqw" aria-hidden="true"><path d="M0 15H200M0 30H200M0 45H200" stroke="#1c1c1c" stroke-width=".5" fill="none"/><path d="M0 46C16 40 24 44 40 32S72 36 88 24 120 30 136 16 172 22 200 6V60H0Z" fill="rgba(255,113,56,.12)"/><path d="M0 46C16 40 24 44 40 32S72 36 88 24 120 30 136 16 172 22 200 6" stroke="#FF7138" stroke-width="1.5" fill="none" vector-effect="non-scaling-stroke"/></svg><div style="left:14cqw;right:4cqw;bottom:3cqw;font:1.4cqw var(--b);display:grid;gap:.9cqw"><span>#4821 · Packed · 2 min ago</span><span style="color:#9b968e">#4820 · Shipped · 9 min ago</span></div></div></div></figure><div class="scm"><p class="nm">03 · Web application</p><h3>Dashboards that stay readable.</h3><p>Operational data organised so a team can act on it at a glance.</p><p class="tg">Original concept — not client work.</p></div></section>
+<section class="sc sc4 rv"><div class="scm"><p class="nm">04 · Brand &amp; portfolio</p><h3>Personality, at full volume.</h3><p>Oversized type and a bold palette for studios and creatives who want to be remembered.</p><p class="tg">Original concept — not client work.</p></div><figure><div class="br"><div class="tb"><i></i><i></i><i></i><b>atelier-sol.example</b></div><div class="bd" role="img" aria-label="Sample brand and portfolio website with oversized type" style="background:#FF7138;color:#050505"><i style="right:14cqw;top:12cqw;width:26cqw;height:26cqw;border-radius:50%;border:.5cqw solid #050505"></i><span style="left:5cqw;top:4cqw;font:500 1.8cqw var(--b)">Atelier Sol</span><span style="right:5cqw;top:4cqw;font:500 1.8cqw var(--b);display:flex;gap:3cqw"><span>Work (06)</span><span>Index</span></span><h4 style="left:5cqw;top:12cqw;margin:0;font:500 15cqw/.86 var(--h);letter-spacing:-.06em">Form<br>follows<br>feeling.</h4><i style="right:6cqw;bottom:6cqw;width:12cqw;height:12cqw;border-radius:50%;background:#050505"></i><span style="right:10.2cqw;bottom:9.4cqw;color:#FF7138;font:2.6cqw var(--b)">↗</span></div></div></figure></section>
+<section class="gal rv"><header><p class="lb">Also in the studio</p></header>
+<figure><svg class="cp" viewBox="0 0 360 220" role="img" aria-label="Three prototype screens linked by a user flow"><g fill="#111" stroke="#2c2c2c"><rect x="14" y="30" width="86" height="160" rx="12"/><rect x="136" y="46" width="86" height="160" rx="12"/><rect x="258" y="30" width="86" height="160" rx="12"/></g><g fill="#F3F0EB"><rect x="26" y="46" width="40" height="7" rx="3"/><rect x="148" y="62" width="40" height="7" rx="3"/><rect x="270" y="46" width="40" height="7" rx="3"/></g><g fill="#1c1c1c"><rect x="26" y="80" width="62" height="50" rx="6"/><rect x="148" y="82" width="62" height="70" rx="6"/><rect x="270" y="66" width="62" height="40" rx="6"/></g><rect x="26" y="150" width="62" height="20" rx="10" fill="#FF7138"/><rect x="270" y="150" width="62" height="20" rx="10" fill="none" stroke="#FF7138"/><path class="fl-p" d="M88 160C112 160 112 120 136 120M210 120C234 120 234 160 258 160" fill="none" stroke="#FF7138"/><circle cx="88" cy="160" r="4" fill="#FF7138"/><circle cx="210" cy="120" r="4" fill="#FF7138"/><g fill="#9b968e" font-size="10" font-family="Inter,sans-serif"><text x="14" y="214">Home</text><text x="136" y="216">Product</text><text x="258" y="214">Checkout</text></g></svg><figcaption>UI/UX &amp; Figma prototypes</figcaption></figure>
+<figure><svg class="cp" viewBox="0 0 360 220" role="img" aria-label="A cluttered page beside its refined redesign"><rect x="10" y="20" width="160" height="180" rx="6" fill="none" stroke="#3a3a3a" stroke-dasharray="3 4"/><g fill="#3a3a3a"><rect x="20" y="32" width="140" height="6"/><rect x="20" y="44" width="60" height="10"/><rect x="90" y="44" width="60" height="10"/><rect x="20" y="62" width="140" height="3"/><rect x="20" y="70" width="100" height="3"/><rect x="20" y="80" width="50" height="40"/><rect x="76" y="80" width="84" height="18"/><rect x="76" y="102" width="84" height="18"/><rect x="20" y="126" width="140" height="5"/><rect x="20" y="136" width="120" height="5"/><rect x="20" y="146" width="140" height="5"/><rect x="20" y="160" width="40" height="14"/><rect x="66" y="160" width="40" height="14"/><rect x="112" y="160" width="40" height="14"/></g><rect x="190" y="20" width="160" height="180" rx="6" fill="#111" stroke="#2c2c2c"/><rect x="204" y="38" width="30" height="5" rx="2.5" fill="#FF7138"/><rect x="204" y="70" width="120" height="12" rx="3" fill="#F3F0EB"/><rect x="204" y="90" width="90" height="12" rx="3" fill="#F3F0EB"/><rect x="204" y="124" width="56" height="20" rx="10" fill="#FF7138"/><rect x="204" y="162" width="136" height="1.5" fill="#2c2c2c"/><path d="M180 14V206" stroke="#FF7138"/><circle cx="180" cy="110" r="9" fill="#050505" stroke="#FF7138"/><path d="M176 110h-3M184 110h3" stroke="#FF7138"/><g fill="#9b968e" font-size="10" font-family="Inter,sans-serif"><text x="10" y="214">Before</text><text x="190" y="214">After</text></g></svg><figcaption>Redesign &amp; optimisation</figcaption></figure>
+<figure><svg class="cp" viewBox="0 0 360 220" role="img" aria-label="A website connected to an API, CRM, database and payments"><g fill="none" stroke="#3a3a3a"><path id="g1" d="M180 110L60 50"/><path id="g2" d="M180 110L300 50"/><path id="g3" d="M180 110L60 180"/><path id="g4" d="M180 110L300 180"/></g><g fill="#111" stroke="#F3F0EB"><rect x="34" y="34" width="52" height="32" rx="8"/><rect x="274" y="34" width="52" height="32" rx="8"/><rect x="34" y="164" width="52" height="32" rx="8"/><rect x="274" y="164" width="52" height="32" rx="8"/></g><circle cx="180" cy="110" r="28" fill="#050505" stroke="#FF7138" stroke-width="2"/><g fill="#F3F0EB" font-size="11" font-family="Inter,sans-serif" text-anchor="middle"><text x="60" y="54">API</text><text x="300" y="54">CRM</text><text x="60" y="184">Data</text><text x="300" y="184">Pay</text><text x="180" y="114">Site</text></g><g fill="#3d7bff"><circle r="3"><animateMotion dur="3s" repeatCount="indefinite" path="M180 110L60 50"/></circle><circle r="3"><animateMotion dur="3s" begin="-1s" repeatCount="indefinite" path="M180 110L300 180"/></circle><circle r="3"><animateMotion dur="3s" begin="-2s" repeatCount="indefinite" path="M60 180L180 110"/></circle></g></svg><figcaption>API &amp; database integration</figcaption></figure></section>
+<section class="proc" data-p id="proc"><div style="--i:0">Discover</div><div style="--i:1">Design</div><div style="--i:2">Develop</div><div style="--i:3">Refine</div><div style="--i:4">Launch</div></section>
+<section class="sec" style="min-height:60vh"><h2>Have a site in mind?</h2><a class="cta" href="#contact">Discuss Your Project</a></section>
+</div>
+
+<div class="pg" id="agents" data-t="AI Agents — ORriqo">
+<section class="sec"><p class="lb">AI Agents</p><h1>Intelligence that<br>works with you.</h1>
+<div class="dm"><div class="chips" role="group" aria-label="Example requests"><button data-k="0">Answer a customer</button><button data-k="1">Qualify a lead</button><button data-k="2">Schedule a meeting</button></div>
+<div class="st" aria-live="polite"><span id="s0">Request</span><i></i><span id="s1">Processing</span><i></i><span id="s2">Outcome</span></div>
+<div id="out">Choose an example to run it.</div><p class="note">Demonstration — responses are simulated and not connected to any live service.</p></div></section>
+<section class="ags"><div class="agp sw" id="agp" aria-live="polite"><p class="lb" id="ap-n"></p><h3 id="ap-t"></h3><p id="ap-d"></p><p class="uc" id="ap-u"></p><svg id="ap-v" viewBox="0 0 320 120" aria-hidden="true"></svg></div><ul class="agl"><li><button type="button" class="ag" aria-pressed="false"><small>01</small>Customer Support<span class="ar" aria-hidden="true">→</span></button></li><li><button type="button" class="ag" aria-pressed="false"><small>02</small>Lead Qualification<span class="ar" aria-hidden="true">→</span></button></li><li><button type="button" class="ag" aria-pressed="false"><small>03</small>Meeting &amp; Scheduling<span class="ar" aria-hidden="true">→</span></button></li><li><button type="button" class="ag" aria-pressed="false"><small>04</small>Research &amp; Knowledge<span class="ar" aria-hidden="true">→</span></button></li><li><button type="button" class="ag" aria-pressed="false"><small>05</small>Internal Business Assistant<span class="ar" aria-hidden="true">→</span></button></li><li><button type="button" class="ag" aria-pressed="false"><small>06</small>Custom AI Agent<span class="ar" aria-hidden="true">→</span></button></li></ul></section>
+<section class="sec" style="min-height:70vh"><h2>Have an idea for an<br>intelligent agent?</h2><button class="cta" id="ag">Get an AI Agent</button><p class="er" id="agn" role="status"></p></section>
+</div>
+
+<div class="pg" id="automation" data-t="Automation — ORriqo">
+<section class="am"><div class="amt"><p class="lb">Intelligent Automation</p><h1>Make the<br>work flow.</h1><p class="sub">Disconnected tasks, joined into one system that runs itself.</p><a class="cta" href="#contact">Discuss Your Workflow</a></div>
+<div class="amv" id="amv" role="img" aria-label="Three stages. Connect: an inbox, a CRM and a spreadsheet are linked. Automate: a signal moves through a workflow hub. Execute: a completed task is shown as the final result."><svg class="vd" viewBox="0 0 640 400" aria-hidden="true"><defs><linearGradient id="mfd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17171b"/><stop offset="1" stop-color="#0a0a0c"/></linearGradient><linearGradient id="msd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a86ff" stop-opacity=".42"/><stop offset=".5" stop-color="#F3F0EB" stop-opacity=".12"/><stop offset="1" stop-color="#3d7bff" stop-opacity=".26"/></linearGradient><radialGradient id="gvd"><stop offset="0" stop-color="#6a4cff" stop-opacity=".2"/><stop offset="1" stop-color="#6a4cff" stop-opacity="0"/></radialGradient><radialGradient id="gbd"><stop offset="0" stop-color="#2f6bff" stop-opacity=".13"/><stop offset="1" stop-color="#2f6bff" stop-opacity="0"/></radialGradient></defs><circle cx="320" cy="202" r="170" fill="url(#gvd)"/><circle cx="560" cy="300" r="120" fill="url(#gbd)"/><text class="hd k1" x="16" y="16">01&#160; CONNECT</text><text class="hd k2" x="268" y="16">02&#160; AUTOMATE</text><text class="hd k3" x="452" y="16">03&#160; EXECUTE</text><path class="rl" d="M16 26H188M268 26H372M452 26H624"/><path class="cn" pathLength="1" d="M188 78C230 78 226 178 268 178"/><path class="ac" pathLength="1" d="M188 78C230 78 226 178 268 178"/><path class="cn" pathLength="1" d="M188 202H268"/><path class="ac" pathLength="1" d="M188 202H268"/><path class="cn" pathLength="1" d="M188 326C230 326 226 226 268 226"/><path class="ac" pathLength="1" d="M188 326C230 326 226 226 268 226"/><path class="cn" pathLength="1" d="M372 202H452"/><path class="ac ac2" pathLength="1" d="M372 202H452"/><path class="sg" pathLength="1" d="M188 78C230 78 226 178 268 178"/><path class="sg" pathLength="1" d="M188 202H268"/><path class="sg" pathLength="1" d="M188 326C230 326 226 226 268 226"/><path class="sg sg2" pathLength="1" d="M372 202H452"/><g class="src" style="--d:0.0"><rect class="mod" fill="url(#mfd)" stroke="url(#msd)" x="16" y="44" width="172" height="68" rx="12"/><rect class="tl" x="30" y="62" width="32" height="32" rx="9"/><g class="ic" transform="translate(36 70)"><rect width="20" height="14" rx="2"/><path d="M1 2l9 7 9-7"/></g><text class="a" x="74" y="76">Inbox</text><text class="c" x="74" y="93">Requests &amp; email</text><circle class="dt" cx="172" cy="78.0" r="3.5"/></g><g class="src" style="--d:0.15"><rect class="mod" fill="url(#mfd)" stroke="url(#msd)" x="16" y="168" width="172" height="68" rx="12"/><rect class="tl" x="30" y="186" width="32" height="32" rx="9"/><g class="ic" transform="translate(36 194)"><circle cx="10" cy="5" r="4"/><path d="M2 16c0-6 16-6 16 0"/></g><text class="a" x="74" y="200">CRM</text><text class="c" x="74" y="217">Contacts &amp; leads</text><circle class="dt" cx="172" cy="202.0" r="3.5"/></g><g class="src" style="--d:0.3"><rect class="mod" fill="url(#mfd)" stroke="url(#msd)" x="16" y="292" width="172" height="68" rx="12"/><rect class="tl" x="30" y="310" width="32" height="32" rx="9"/><g class="ic" transform="translate(36 318)"><rect width="20" height="15" rx="2"/><path d="M0 5.5h20M0 10h20M7 0v15"/></g><text class="a" x="74" y="324">Spreadsheet</text><text class="c" x="74" y="341">Records &amp; reports</text><circle class="dt" cx="172" cy="326.0" r="3.5"/></g><g class="hub"><rect class="mod" fill="url(#mfd)" stroke="url(#msd)" x="268" y="150" width="104" height="104" rx="24"/><circle class="hr" cx="320" cy="202" r="34"/><circle class="hc" cx="320" cy="202" r="19"/><path class="pw" d="M307 202h6l4-8 6 16 4-8h6"/></g><g class="hub"><text class="a" x="320" y="278" text-anchor="middle">Workflow</text><text class="c" x="320" y="294" text-anchor="middle">Rules + AI assist</text></g><g class="out"><rect class="mod" fill="url(#mfd)" stroke="url(#msd)" x="452" y="108" width="172" height="188" rx="14"/><circle class="ck" cx="482" cy="142" r="13"/><path class="tk" pathLength="1" d="M476 142l4.5 4.5 8.5-9"/><text class="a" x="506" y="139">Task completed</text><text class="c" x="506" y="155">No manual steps</text><path class="rl" d="M468 170H608"/><g class="rw" style="--d:0.0"><path class="rt" d="M471 194l3 3 6-6"/><text class="r" x="490" y="198">Record updated</text></g><g class="rw" style="--d:0.12"><path class="rt" d="M471 220l3 3 6-6"/><text class="r" x="490" y="224">Invoice generated</text></g><g class="rw" style="--d:0.24"><path class="rt" d="M471 246l3 3 6-6"/><text class="r" x="490" y="250">Team notified</text></g><path class="rl" d="M468 266H608"/><text class="c" x="468" y="285" style="font-size:10px">Completed automatically</text></g></svg><svg class="vm" viewBox="0 0 340 568" aria-hidden="true"><defs><linearGradient id="mfm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17171b"/><stop offset="1" stop-color="#0a0a0c"/></linearGradient><linearGradient id="msm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a86ff" stop-opacity=".42"/><stop offset=".5" stop-color="#F3F0EB" stop-opacity=".12"/><stop offset="1" stop-color="#3d7bff" stop-opacity=".26"/></linearGradient><radialGradient id="gvm"><stop offset="0" stop-color="#6a4cff" stop-opacity=".2"/><stop offset="1" stop-color="#6a4cff" stop-opacity="0"/></radialGradient><radialGradient id="gbm"><stop offset="0" stop-color="#2f6bff" stop-opacity=".13"/><stop offset="1" stop-color="#2f6bff" stop-opacity="0"/></radialGradient></defs><circle cx="170" cy="236" r="150" fill="url(#gvm)"/><circle cx="260" cy="470" r="110" fill="url(#gbm)"/><text class="hd k1" x="0" y="14">01&#160; CONNECT</text><path class="rl" d="M0 24H340"/><path class="cn" pathLength="1" d="M53 122C53 160 146 154 146 192"/><path class="ac" pathLength="1" d="M53 122C53 160 146 154 146 192"/><path class="cn" pathLength="1" d="M170 122V192"/><path class="ac" pathLength="1" d="M170 122V192"/><path class="cn" pathLength="1" d="M287 122C287 160 194 154 194 192"/><path class="ac" pathLength="1" d="M287 122C287 160 194 154 194 192"/><path class="cn" pathLength="1" d="M170 280V372"/><path class="ac ac2" pathLength="1" d="M170 280V372"/><path class="sg" pathLength="1" d="M53 122C53 160 146 154 146 192"/><path class="sg" pathLength="1" d="M170 122V192"/><path class="sg" pathLength="1" d="M287 122C287 160 194 154 194 192"/><path class="sg sg2" pathLength="1" d="M170 280V372"/><g class="src" style="--d:0.0"><rect class="mod" fill="url(#mfm)" stroke="url(#msm)" x="0" y="36" width="106" height="86" rx="12"/><rect class="tl" x="37.0" y="50" width="32" height="32" rx="9"/><g class="ic" transform="translate(43.0 58)"><rect width="20" height="14" rx="2"/><path d="M1 2l9 7 9-7"/></g><text class="a" x="53.0" y="102" text-anchor="middle" style="font-size:12.5px">Inbox</text><text class="c" x="53.0" y="116" text-anchor="middle" style="font-size:10px">Requests</text><circle class="dt" cx="94" cy="48" r="3.2"/></g><g class="src" style="--d:0.15"><rect class="mod" fill="url(#mfm)" stroke="url(#msm)" x="117" y="36" width="106" height="86" rx="12"/><rect class="tl" x="154.0" y="50" width="32" height="32" rx="9"/><g class="ic" transform="translate(160.0 58)"><circle cx="10" cy="5" r="4"/><path d="M2 16c0-6 16-6 16 0"/></g><text class="a" x="170.0" y="102" text-anchor="middle" style="font-size:12.5px">CRM</text><text class="c" x="170.0" y="116" text-anchor="middle" style="font-size:10px">Contacts</text><circle class="dt" cx="211" cy="48" r="3.2"/></g><g class="src" style="--d:0.3"><rect class="mod" fill="url(#mfm)" stroke="url(#msm)" x="234" y="36" width="106" height="86" rx="12"/><rect class="tl" x="271.0" y="50" width="32" height="32" rx="9"/><g class="ic" transform="translate(277.0 58)"><rect width="20" height="15" rx="2"/><path d="M0 5.5h20M0 10h20M7 0v15"/></g><text class="a" x="287.0" y="102" text-anchor="middle" style="font-size:12.5px">Sheets</text><text class="c" x="287.0" y="116" text-anchor="middle" style="font-size:10px">Records</text><circle class="dt" cx="328" cy="48" r="3.2"/></g><g class="hub"><rect class="mod" fill="url(#mfm)" stroke="url(#msm)" x="118" y="184" width="104" height="104" rx="24"/><circle class="hr" cx="170" cy="236" r="34"/><circle class="hc" cx="170" cy="236" r="19"/><path class="pw" d="M157 236h6l4-8 6 16 4-8h6"/></g><text class="hd k2" x="0" y="240">02&#160; AUTOMATE</text><g class="hub"><text class="a" x="236" y="232">Workflow</text><text class="c" x="236" y="248" style="font-size:10.5px">Rules + AI assist</text></g><text class="hd k3" x="0" y="352">03&#160; EXECUTE</text><g class="out"><rect class="mod" fill="url(#mfm)" stroke="url(#msm)" x="20" y="372" width="300" height="190" rx="14"/><circle class="ck" cx="50" cy="406" r="13"/><path class="tk" pathLength="1" d="M44 406l4.5 4.5 8.5-9"/><text class="a" x="74" y="403">Task completed</text><text class="c" x="74" y="419">No manual steps</text><path class="rl" d="M36 434H304"/><g class="rw" style="--d:0.0"><path class="rt" d="M39 458l3 3 6-6"/><text class="r" x="58" y="462">Record updated</text></g><g class="rw" style="--d:0.12"><path class="rt" d="M39 484l3 3 6-6"/><text class="r" x="58" y="488">Invoice generated</text></g><g class="rw" style="--d:0.24"><path class="rt" d="M39 510l3 3 6-6"/><text class="r" x="58" y="514">Team notified</text></g><path class="rl" d="M36 532H304"/><text class="c" x="36" y="551" style="font-size:10px">Completed automatically</text></g></svg><button class="rpl" id="rp" type="button" aria-label="Replay animation">Replay ↺</button></div></section>
+<section class="amst"><p class="lb">How it works</p><div class="amc">
+<div class="rv"><small>01</small><h3>Connect</h3><p>Your applications and tools, brought together in one place.</p></div>
+<div class="rv"><small>02</small><h3>Automate</h3><p>Rules and AI assist move work between them, without hand-offs.</p></div>
+<div class="rv"><small>03</small><h3>Execute</h3><p>Tasks finish on their own, with a clear record of what happened.</p></div></div></section>
+<section class="sec" style="min-height:60vh"><h2>Have a workflow<br>in mind?</h2><a class="cta" href="#contact">Discuss Your Workflow</a></section>
+</div>
+
+<div class="pg" id="about" data-t="About — ORriqo">
+<section class="sec"><p class="lb">About</p><h1>Thoughtfully engineered.<br>Intentionally designed.</h1>
+<p class="sub">Design decides how it feels. Engineering decides whether it works. Intelligent systems decide how much work is left for you.</p>
+<div class="sheet" aria-label="Logo system">
+<div class="t"><svg class="mk" style="width:64px;height:64px;color:var(--or)"><use href="#m"/></svg></div>
+<div class="t l"><svg class="mk" style="width:64px;height:64px;color:#050505"><use href="#m"/></svg></div>
+<div class="t"><svg class="mk" style="width:64px;height:64px;color:var(--fg)"><use href="#m"/></svg></div>
+<div style="display:flex;gap:14px;align-items:flex-end"><svg style="width:32px;height:32px;color:var(--fg)"><use href="#m"/></svg><svg style="width:24px;height:24px;color:var(--fg)"><use href="#m"/></svg><svg style="width:16px;height:16px;color:var(--fg)"><use href="#m"/></svg></div>
+<span class="wm" style="font-size:22px" aria-label="ORriqo"><span class="w-en">OR</span><svg class="w-hi" viewBox="0 0 38 42" aria-hidden="true" fill="none"><path d="M3 12.5H35" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M6.8 12.5V33" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M6.8 12.5C6.8 2.2 27.5 2.2 29 12.5" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M18.2 12.5H21.5C28 12.5 28 22 20.2 23" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><path d="M20.2 23L29 33" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/></svg><span class="w-en">qo</span></span></div></section></div>
+
+<div class="pg" id="contact" data-t="Contact — ORriqo">
+<section class="sec"><h1>Tell us what<br>you’re building.</h1>
+<form id="cf" novalidate>
+<div class="fl"><label for="name">Name</label><input id="name" name="name" autocomplete="name"><div class="er" id="e-name"></div></div>
+<div class="fl"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><div class="er" id="e-email"></div></div>
+<div class="fl"><label for="service">Service required</label><select id="service" name="service"><option value="">Select</option><option>Website Development</option><option>AI Agents</option><option>AI Automation</option><option>Other</option></select><div class="er" id="e-service"></div></div>
+<div class="fl"><label for="details">Project details</label><textarea id="details" name="details" rows="4"></textarea><div class="er" id="e-details"></div></div>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div><button class="cta" id="sd" type="submit" style="margin-top:0">Send</button></div><div id="sx" role="status" aria-live="polite"></div></form></section></div>
+</main>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="flowdef">
+<g fill="none" stroke="#9b968e" stroke-width="1.5" style="opacity:clamp(0,calc(1 - var(--p,0)*1.8),1)"><path d="M10 150h50M95 60h40M170 170l40-20M240 40l30 20M330 130l36 14M410 60h40"/></g>
+<path d="M10 150C100 150 120 60 230 70S340 170 420 120 480 60 510 60" fill="none" stroke="#FF7138" stroke-width="2.5" pathLength="1" stroke-dasharray="1" style="stroke-dashoffset:calc(1 - var(--p,0)*1.4)"/>
+<g fill="#F3F0EB"><circle cx="10" cy="150" r="5"/><circle cx="230" cy="70" r="5"/><circle cx="420" cy="120" r="5"/><circle cx="510" cy="60" r="5"/></g>
+<g style="opacity:clamp(0,calc(var(--p,0)*3 - 1),1)" fill="#3d7bff"><circle r="3"><animateMotion dur="4s" repeatCount="indefinite" path="M10 150C100 150 120 60 230 70S340 170 420 120 480 60 510 60"/></circle><circle r="3"><animateMotion dur="4s" begin="-2s" repeatCount="indefinite" path="M10 150C100 150 120 60 230 70S340 170 420 120 480 60 510 60"/></circle></g></g></defs></svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ===== CONFIGURATION — set before launch ===== */
+var FORM_ENDPOINT = (function() {
+  if (window.location.protocol === "file:" || (window.location.port && window.location.port !== "3000")) {
+    return "http://localhost:3000/api/contact";
+  }
+  return "/api/contact";
+})();
+/* ============================================= */
+(function(){
+document.documentElement.classList.add("js");
+var P=["home","about","websites","agents","automation","contact"],$=function(i){return document.getElementById(i)},T0=Date.now();
+var mb=$("mb"),ov=$("ov");
+function menu(o){ov.classList.toggle("o",o);mb.setAttribute("aria-expanded",o);try{document.querySelector("main").inert=o}catch(e){}if(o)ov.querySelector(".n").focus()}
+mb.onclick=function(){menu(!ov.classList.contains("o"))};$("cl").onclick=function(){menu(false);mb.focus()};
+ov.onclick=function(e){if(e.target.closest("a"))menu(false)};
+addEventListener("keydown",function(e){if(e.key==="Escape"&&ov.classList.contains("o")){menu(false);mb.focus()}});
+var cur="home";
+function route(x){var h=typeof x==="string"?x:(location.hash||"#home").slice(1);if(P.indexOf(h)<0)h="home";cur=h;
+ P.forEach(function(p){$(p).classList.toggle("on",p===h)});
+ ov.querySelectorAll(".n").forEach(function(a){a.getAttribute("href")==="#"+h?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+ document.title=$(h).dataset.t;scrollTo(0,0);prog();document.body.dataset.pg=h;reveal();amCtl(h==="automation")}
+addEventListener("hashchange",function(){route()});
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^='#']");if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;var h=a.getAttribute("href").slice(1);if(P.indexOf(h)<0)return;e.preventDefault();var SV={websites:"Website Development",agents:"AI Agents",automation:"AI Automation"};if(h==="contact"&&SV[cur])$("service").value=SV[cur];try{if(location.hash!=="#"+h)history.pushState(null,"","#"+h)}catch(x){}route(h)});
+addEventListener("popstate",function(){route()});
+document.querySelectorAll("[data-scroll]").forEach(function(b){b.onclick=function(){$(b.dataset.scroll).scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}});
+/* scroll-linked progress */
+var tk=0;function prog(){tk=0;var vh=innerHeight,d=document.documentElement;
+ $("bar").style.transform="scaleX("+Math.min(1,scrollY/Math.max(1,d.scrollHeight-vh))+")";
+ document.querySelectorAll(".pg.on [data-p]").forEach(function(e){var r=e.getBoundingClientRect(),p=e.dataset.p==="pin"?(vh*.15-r.top)/(r.height-vh*1.15):(vh*.85-r.top)/(r.height*.75);if(matchMedia("(prefers-reduced-motion: reduce)").matches)p=1;e.style.setProperty("--p",Math.max(0,Math.min(1,p)).toFixed(3))})}
+addEventListener("scroll",function(){if(!tk)tk=requestAnimationFrame(prog)},{passive:true});addEventListener("resize",prog);
+/* AI agent explorer: hover, focus or tap */
+var AG=[["Customer Support Agent","Answers common customer questions, helps users navigate services, and can route complex queries to a human representative.","answering delivery and returns questions at any hour."],["Lead Qualification Agent","Collects relevant lead information, identifies potential customers, and helps organise enquiries for follow-up.","capturing enquiry details from your website and sorting them by fit."],["Meeting & Scheduling Agent","Helps coordinate meeting requests, check availability through connected systems, and assist with scheduling workflows.","finding a time that works for everyone on a client call."],["Research & Knowledge Agent","Retrieves relevant information from approved sources and helps users find answers across documents or internal knowledge bases.","finding an answer in policy documents without searching by hand."],["Internal Business Assistant","Helps teams access information, organise routine tasks, and interact with supported internal tools.","asking where a process is documented, or logging a routine request."],["Custom AI Agent","A tailored agent designed around a specific business process, use case, or connected application.","an agent shaped around your own intake or approval process."]];
+var P1='<circle r="3" fill="#3d7bff"><animateMotion dur="2.4s" repeatCount="indefinite" path="',P2='"/></circle>',S='<g fill="none" stroke="#F3F0EB" stroke-width="1.3">';
+var AV=[S+'<path d="M30 60H130M190 60C230 60 240 34 284 34"/><path d="M190 60C230 60 240 86 284 86" stroke-dasharray="4 5"/></g><circle cx="30" cy="60" r="6" fill="#F3F0EB"/><circle cx="160" cy="60" r="30" fill="#050505" stroke="#FF7138" stroke-width="2"/><circle cx="288" cy="34" r="7" fill="#FF7138"/><circle cx="288" cy="86" r="7" fill="none" stroke="#F3F0EB"/>'+P1+'M30 60H130'+P2,
+S+'<path d="M36 20L130 56M36 60H130M36 100L130 64M200 60H280"/></g><g fill="#F3F0EB"><circle cx="30" cy="20" r="5"/><circle cx="30" cy="60" r="5"/><circle cx="30" cy="100" r="5"/></g><path d="M130 30L200 50V70L130 90Z" fill="#050505" stroke="#FF7138" stroke-width="2"/><circle cx="288" cy="60" r="8" fill="#FF7138"/>'+P1+'M200 60H280'+P2,
+S+'<path d="M36 60H112M208 60H280"/></g><circle cx="30" cy="60" r="6" fill="#F3F0EB"/><g fill="#1b1b1b" stroke="#3a3a3a"><rect x="120" y="32" width="24" height="24" rx="4"/><rect x="148" y="32" width="24" height="24" rx="4"/><rect x="176" y="32" width="24" height="24" rx="4"/><rect x="120" y="62" width="24" height="24" rx="4"/><rect x="176" y="62" width="24" height="24" rx="4"/></g><rect x="148" y="62" width="24" height="24" rx="4" fill="#FF7138"/><circle cx="288" cy="60" r="8" fill="#FF7138"/>'+P1+'M36 60H112'+P2,
+'<g fill="#1b1b1b" stroke="#F3F0EB" stroke-width="1.2"><rect x="16" y="8" width="24" height="30" rx="3"/><rect x="16" y="45" width="24" height="30" rx="3"/><rect x="16" y="82" width="24" height="30" rx="3"/></g>'+S+'<path d="M40 23C100 23 110 60 138 60M40 60H138M40 97C100 97 110 60 138 60"/></g><circle cx="160" cy="60" r="22" fill="#050505" stroke="#FF7138" stroke-width="2"/><g fill="#F3F0EB"><rect x="230" y="48" width="60" height="5" rx="2.5"/><rect x="230" y="60" width="44" height="5" rx="2.5"/><rect x="230" y="72" width="52" height="5" rx="2.5"/></g><path d="M182 60H224" stroke="#FF7138" stroke-width="1.5"/>'+P1+'M40 60H138'+P2,
+S+'<path d="M160 60L208 60M160 60L175 106M160 60L121 88M160 60L121 32M160 60L175 14"/></g><g fill="#1b1b1b" stroke="#F3F0EB"><circle cx="208" cy="60" r="7"/><circle cx="175" cy="106" r="7"/><circle cx="121" cy="88" r="7"/><circle cx="121" cy="32" r="7"/><circle cx="175" cy="14" r="7"/></g><circle cx="160" cy="60" r="18" fill="#050505" stroke="#FF7138" stroke-width="2"/>'+P1+'M160 60L121 32'+P2,
+S+'<path d="M36 60H110M214 60H228"/></g><circle cx="30" cy="60" r="6" fill="#F3F0EB"/><rect x="230" y="26" width="64" height="68" rx="8" fill="none" stroke="#FF7138" stroke-dasharray="4 5"/><circle cx="262" cy="60" r="8" fill="#FF7138"/><path fill="#050505" stroke="#FF7138" stroke-width="2" d="M160 30C185 26 206 46 204 64C202 88 180 98 158 92C134 86 118 70 124 50C130 36 146 32 160 30Z"><animate attributeName="d" dur="8s" repeatCount="indefinite" values="M160 30C185 26 206 46 204 64C202 88 180 98 158 92C134 86 118 70 124 50C130 36 146 32 160 30Z;M166 34C190 38 208 56 198 74C188 92 164 96 146 88C126 80 120 56 134 42C144 32 156 32 166 34Z;M160 30C185 26 206 46 204 64C202 88 180 98 158 92C134 86 118 70 124 50C130 36 146 32 160 30Z"/></path>'];
+var ab=document.querySelectorAll(".ag"),ap=$("agp");
+function pick(i){ab.forEach(function(b,k){b.setAttribute("aria-pressed",k===i)});var a=AG[i];$("ap-n").textContent="0"+(i+1);$("ap-t").textContent=a[0];$("ap-d").textContent=a[1];$("ap-u").textContent="Example: "+a[2];$("ap-v").innerHTML=AV[i];ap.classList.remove("sw");void ap.offsetWidth;ap.classList.add("sw")}
+ab.forEach(function(b,i){["mouseenter","focus","click"].forEach(function(ev){b.addEventListener(ev,function(){pick(i)})})});pick(0);
+/* agent demo (simulated) */
+var D=[["How do I change my delivery address?","Matched to delivery policy.","Reply drafted: “You can update your address from your order page until it ships.”"],
+["Enquiry: new store website, budget flexible.","Scored against project criteria.","Qualified: website project. Routed to the team with a summary."],
+["Find time with Priya next week.","Checked two calendars.","Proposed: Tuesday 11:00 or Thursday 15:30. Invite ready to send."]],busy=0;
+document.querySelectorAll(".chips button").forEach(function(b){b.onclick=function(){if(busy)return;busy=1;var d=D[b.dataset.k];
+ document.querySelectorAll(".chips button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+ var s=[0,1,2].map(function(i){var e=$("s"+i);e.className="";return e}),o=$("out");o.textContent="";
+ s[0].className="a";o.textContent=d[0];
+ setTimeout(function(){s[1].className="a";o.textContent=d[1]},1100);
+ setTimeout(function(){s[2].className="a";o.textContent=d[2];busy=0},2300)}});
+$("ag").onclick=function(){$("service").value="AI Agents";try{if(location.hash!=="#contact")history.pushState(null,"","#contact")}catch(x){}route("contact");setTimeout(function(){$("details").focus()},60)};
+/* contact */
+var f=$("cf"),sx=$("sx");function s(m,ok){sx.textContent=m;sx.className="s "+(ok?"ok":"no")}
+f.onsubmit=function(e){e.preventDefault();sx.className="";var ok=1,v=function(k){return f.elements[k].value.trim()};
+ [["name",!v("name"),"Enter your name."],["email",!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email")),"Enter a valid email."],["service",!v("service"),"Choose a service."],["details",v("details").length<10,"Add a few details (10+ characters)."]].forEach(function(c){var i=$(c[0]);i.removeAttribute("aria-invalid");$("e-"+c[0]).textContent="";if(c[1]){i.setAttribute("aria-invalid","true");$("e-"+c[0]).textContent=c[2];ok=0}});
+ if(!ok){f.querySelector("[aria-invalid]").focus();return}
+ if(f.elements.website.value||Date.now()-T0<1000){s("Message not sent. Please try again in a moment.",0);return}
+ if(!FORM_ENDPOINT){s("Not sent: the form is not connected yet.",0);return}
+ var b=$("sd");b.disabled=true;b.textContent="Sending…";
+ fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:v("name"),email:v("email"),service:v("service"),details:v("details")})})
+ .then(function(r){
+   return r.json().catch(function(){return {};}).then(function(d){
+     if(!r.ok||!d.ok) throw new Error(d.error||"Could not send message.");
+     f.reset();
+     s("Sent! We will reply to your email shortly.",1);
+   });
+ })
+ .catch(function(err){
+   s(err&&err.message?err.message:"Not sent. Check your backend connection and try again.",0);
+ })
+ .finally(function(){b.disabled=false;b.textContent="Send"});
+};
+/* automation stage machine: 0 hidden > 1 connect > 2 automate > 3 execute (stable) */
+var RM=matchMedia("(prefers-reduced-motion: reduce)").matches,amE=$("amv"),amT=[],amOn=0;
+function amClr(){amT.forEach(clearTimeout);amT=[]}
+function amSet(s){amE.dataset.s=s}
+function amRun(){amClr();amSet(0);amT=[setTimeout(function(){amSet(1)},700),setTimeout(function(){amSet(2)},3500),setTimeout(function(){amSet(3)},6700),setTimeout(amRun,13500)]}
+function amCtl(on){amOn=on;amClr();if(!on)return;if(RM){amSet(3);return}amRun()}
+$("rp").onclick=function(){if(!RM)amRun()};
+document.addEventListener("visibilitychange",function(){if(!amOn||RM)return;if(document.hidden)amClr();else amRun()});
+/* progressive reveal */
+var io=window.IntersectionObserver&&!RM?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15,rootMargin:"0px 0px -6% 0px"}):null;
+function reveal(){document.querySelectorAll(".pg.on .rv:not(.in)").forEach(function(e){io?io.observe(e):e.classList.add("in")})}
+route();
+/* ===== WebGL: noise-displaced liquid forms, time-driven, independent of cursor ===== */
+var TH=window.THREE,mob=innerWidth<760,rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function off(){document.body.classList.add("nogl")}
+if(!TH||(navigator.hardwareConcurrency||4)<3){off();return}
+var R;try{R=new TH.WebGLRenderer({canvas:$("gl"),alpha:true,antialias:!mob})}catch(e){off();return}
+R.setPixelRatio(Math.min(devicePixelRatio,mob?1.25:1.75));
+var sc=new TH.Scene(),cam=new TH.PerspectiveCamera(45,1,.1,50);cam.position.z=7;
+var NS="vec3 mod289(vec3 x){return x-floor(x*(1./289.))*289.;}vec4 mod289(vec4 x){return x-floor(x*(1./289.))*289.;}vec4 pm(vec4 x){return mod289(((x*34.)+1.)*x);}"+
+"float sn(vec3 v){const vec2 C=vec2(1./6.,1./3.);const vec4 D=vec4(0.,.5,1.,2.);vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.-g;vec3 i1=min(g.xyz,l.zxy);vec3 i2=max(g.xyz,l.zxy);vec3 x1=x0-i1+C.xxx;vec3 x2=x0-i2+C.yyy;vec3 x3=x0-D.yyy;i=mod289(i);"+
+"vec4 p=pm(pm(pm(i.z+vec4(0.,i1.z,i2.z,1.))+i.y+vec4(0.,i1.y,i2.y,1.))+i.x+vec4(0.,i1.x,i2.x,1.));float n_=.142857142857;vec3 ns=n_*D.wyz-D.xzx;vec4 j=p-49.*floor(p*ns.z*ns.z);vec4 x_=floor(j*ns.z);vec4 y_=floor(j-7.*x_);vec4 x=x_*ns.x+ns.yyyy;vec4 y=y_*ns.x+ns.yyyy;vec4 h=1.-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);vec4 s0=floor(b0)*2.+1.;vec4 s1=floor(b1)*2.+1.;vec4 sh=-step(h,vec4(0.));"+
+"vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);vec4 nr=1.79284291400159-.85373472095314*vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3));p0*=nr.x;p1*=nr.y;p2*=nr.z;p3*=nr.w;vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.);m*=m;return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}";
+var VS="uniform float uT,uS;varying vec3 vN,vV;"+NS+
+"float D(vec3 p){return sn(p*.85+vec3(uS,uS*.7,uT*.11))*.4+sn(p*1.9-vec3(0.,uT*.19,uS))*.12;}"+
+"void main(){vec3 n=normalize(position);vec3 a=normalize(cross(n,vec3(.3,1.,.2)));vec3 b=cross(n,a);float e=.03;vec3 pa=normalize(n+a*e),pb=normalize(n+b*e);"+
+"vec3 p0=n*(1.+D(n)),p1=pa*(1.+D(pa)),p2=pb*(1.+D(pb));vec3 nn=normalize(cross(p1-p0,p2-p0));if(dot(nn,n)<0.)nn=-nn;"+
+"p0.x*=1.+.14*sin(uT*.17+uS);p0.y*=1.-.12*sin(uT*.13+uS*2.);vN=normalize(normalMatrix*nn);vec4 mv=modelViewMatrix*vec4(p0,1.);vV=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}";
+var FS="uniform float uT;varying vec3 vN,vV;void main(){vec3 N=normalize(vN),V=normalize(vV);float f=pow(1.-max(dot(N,V),0.),2.3);"+
+"vec3 rim=mix(vec3(1.,.44,.22),vec3(.18,.4,1.),smoothstep(-.7,.7,N.y+.35*sin(uT*.25+N.x*2.5)));rim=mix(rim,vec3(.5,.34,1.),smoothstep(.2,.9,-N.x)*.7);"+
+"float s1=pow(max(dot(reflect(-normalize(vec3(-.5,.7,.6)),N),V),0.),48.);float s2=pow(max(dot(reflect(-normalize(vec3(.7,-.4,.5)),N),V),0.),20.);"+
+"vec3 c=vec3(.008,.008,.014)+rim*f*1.25+vec3(1.,.93,.85)*s1*.85+vec3(1.,.45,.2)*s2*.35;gl_FragColor=vec4(c,1.);}";
+var G={"home":[[.9,.1,2.1],[-3.7,-3,1],[3.5,-4.2,.8]],about:[[-3,.4,1.8],[3.6,-2,1],[0,-4.6,.9]],websites:[[5.3,3.1,1.0],[-4.9,-3,.8],[1.6,-5.6,.9]],agents:[[-3.4,.4,1.6],[3.5,-2.4,.9],[.5,-5,.7]],automation:[[5.3,3.1,1.0],[-5,-3.1,.75],[1.2,-5.6,.8]],contact:[[2.6,-.1,1.7],[-3.8,1.6,.7],[-2,-4.4,.8]]};
+var ms=[1.3,4.7,8.1].slice(0,mob?2:3).map(function(seed,i){var u={uT:{value:0},uS:{value:seed}};
+ var m=new TH.Mesh(new TH.IcosahedronGeometry(1,mob?3:5),new TH.ShaderMaterial({uniforms:u,vertexShader:VS,fragmentShader:FS}));m.userData.u=u;m.userData.i=i;sc.add(m);return m});
+function size(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}size();addEventListener("resize",size);
+var t=0,last=performance.now();
+function loop(n){requestAnimationFrame(loop);var dt=Math.min(.05,(n-last)/1e3);last=n;if(document.hidden)return;if(!rm)t+=dt;
+ var s=Math.min(1,cam.aspect*.9),sy=scrollY*.0022;
+ ms.forEach(function(m){var g=G[cur][m.userData.i],k=.04;
+  m.position.x+=(g[0]*s-m.position.x)*k;m.position.y+=(g[1]+sy*(1+m.userData.i*.35)-m.position.y)*k;
+  var sc2=g[2]*Math.max(.6,s);m.scale.setScalar(m.scale.x+(sc2-m.scale.x)*k);
+  m.rotation.y=t*.05*(m.userData.i+1);m.userData.u.uT.value=t+(rm?6:0)});
+ R.render(sc,cam)}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
